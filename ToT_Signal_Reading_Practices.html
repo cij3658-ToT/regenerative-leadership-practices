@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal-Reading Practices — Teams of Tomorrow</title>
+<style>
+  :root { --navy:#034159;--sand:#BFA084;--sage:#A4BF69;--coral:#F2955E;--cream:#E8E6DF;--dark:#2C2C2A;--mgray:#888780;--navy-l:#D6E4EA;--sand-l:#F7EFE4;--sage-l:#EAF4D8;--coral-l:#FDEADC; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--cream);color:var(--dark);}
+  header{background:var(--navy);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:5px solid var(--sand);}
+  header h1{color:white;font-size:22px;font-weight:700;}
+  header p{color:var(--sand);font-size:13px;font-style:italic;}
+  main{max-width:900px;margin:0 auto;padding:40px 24px;}
+  .intro{background:white;border-radius:12px;padding:16px 20px;margin-bottom:24px;border-left:4px solid var(--navy);}
+  .intro p{font-size:13px;line-height:1.7;color:var(--dark);}
+  .level-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+  .lbtn{background:none;border:1.5px solid #ccc;border-radius:8px;padding:8px 18px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
+  .lbtn.active{color:white;border-color:transparent;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .level-intro{border-radius:0;padding:12px 16px;margin-bottom:16px;border-left:4px solid;}
+  .level-intro p{font-size:13px;line-height:1.65;color:var(--dark);}
+  .practice{border:1px solid #ddd;border-radius:12px;background:white;margin-bottom:10px;overflow:hidden;cursor:pointer;transition:border-color .15s;}
+  .practice:hover{border-color:#999;}
+  .practice.open{border-color:var(--dark);}
+  .p-head{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;}
+  .p-num{width:28px;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+  .p-title{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:2px;}
+  .p-sub{font-size:12px;color:var(--mgray);}
+  .p-body{display:none;padding:0 16px 14px 56px;border-top:1px solid #eee;}
+  .practice.open .p-body{display:block;}
+  .p-body p{font-size:13px;color:var(--dark);line-height:1.65;margin-top:10px;}
+  .p-quote{border-left:2px solid #ccc;padding:6px 12px;margin:10px 0;font-size:12px;font-style:italic;color:var(--dark);line-height:1.6;}
+  .p-how{background:#f8f5f0;border-radius:8px;padding:10px 14px;margin-top:10px;}
+  .p-how strong{font-size:11px;font-weight:700;letter-spacing:.05em;display:block;margin-bottom:4px;color:var(--mgray);}
+  .p-how span{font-size:12px;color:var(--dark);line-height:1.55;}
+  .foundation{border:1px solid #ccc;border-radius:12px;padding:16px 20px;background:white;margin-top:16px;}
+  .foundation strong{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--mgray);display:block;margin-bottom:6px;}
+  .foundation p{font-size:13px;line-height:1.65;color:var(--dark);}
+  footer{background:var(--navy);border-top:5px solid var(--sand);padding:20px 40px;display:flex;justify-content:space-between;align-items:center;margin-top:40px;}
+  footer p{color:var(--sand);font-size:12px;}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>Signal-Reading Practices</h1><p>Developing the capacity to read weak signals of emergent complexity</p></div>
+  <p>Teams of Tomorrow® · Where role meets soul</p>
+</header>
+<main>
+  <div class="intro"><p>Signal-reading capacity does not develop in one place or at one level. It requires the leader to be sufficiently present to themselves to receive signals through the body and through values-dissonance. It requires the relational field between people to be open enough that signals can travel honestly. It requires the team to have recurring structures for collective noticing. And it requires the organisation to have created the conditions in which all of this can take root.</p></div>
+
+  <div class="level-nav">
+    <button class="lbtn active" style="--c:var(--navy)" onclick="showLevel('individual',this)" style="background:var(--navy);color:white;">Individual sensing</button>
+    <button class="lbtn" onclick="showLevel('relational',this)">Relational attention</button>
+    <button class="lbtn" onclick="showLevel('team',this)">Collective noticing</button>
+    <button class="lbtn" onclick="showLevel('systemic',this)">Systemic conditions</button>
+  </div>
+
+  <div id="lp-individual" class="panel active"></div>
+  <div id="lp-relational" class="panel"></div>
+  <div id="lp-team" class="panel"></div>
+  <div id="lp-systemic" class="panel"></div>
+
+  <div class="foundation"><strong>THE INTEGRATING PRINCIPLE</strong><p>Remove any one level and the capacity becomes fragile under pressure. Signal-reading requires the leader to be present to themselves, the relational field to be open, the team to have structures for collective noticing, and the organisation to provide safety, time, and valued attention.</p></div>
+</main>
+<footer>
+  <p>©Teams of Tomorrow® · Teams of Tomorrow Portal</p>
+  <p>teamsoftomorrow.net</p>
+</footer>
+
+<script>
+const levels = {
+  individual:{color:"#034159",bg:"#D6E4EA",intro:"Individual practices develop the leader's inner sensing capacity — the body, values, and reflective habits that allow weak signals to be received before they can be explained away. This is the intra-connection dimension.",practices:[
+    {n:1,title:"Somatic noticing",sub:"The body as a signal-reading instrument",body:"The body registers complexity before the mind can articulate it. A persistent sense of depletion after a particular meeting, a recurring tightness when a specific topic arises — these are not imagination. They are data. Developing the practice of attending to somatic signals as legitimate organisational intelligence is one of the most underused capacities available to a leader.",quote:"\"I noticed I always felt slightly flat after our Monday stand-up. It took months before I asked myself what that feeling was trying to tell me.\"",how:"After significant interactions, pause briefly and ask: what am I noticing in my body right now? Not what do I think happened, but what am I sensing. Keep a private record over time. Patterns will emerge that analysis alone would miss."},
+    {n:2,title:"Values as navigational ground",sub:"Knowing what you stand for creates a dissonance sensor",body:"A leader who is genuinely grounded in their values has a reference point against which dissonance becomes perceptible. The signal 'something feels off' has nowhere to land for a leader who has not developed a sufficiently clear inner orientation. Values are the sensing apparatus.",quote:"\"I kept finding reasons to postpone a particular conversation. Eventually I realised it was because having it would require me to act on something I believed but hadn't yet admitted I believed.\"",how:"A living inquiry: where do I feel integrity right now, and where do I feel drift? What am I tolerating that I would not have tolerated a year ago? What does that tell me about the state of the system I am part of?"},
+    {n:3,title:"Structured reflection — the generative pause",sub:"Creating time that is not oriented toward action",body:"The Japanese concept of ma — the generative pause, the productive space between events — treats stillness as a form of work, not an absence of it. The leader who has no reflective practice is entirely dependent on signals becoming loud before they can be heard.",quote:"\"I used to think reflection was what you did when you had spare time. I eventually understood it was what prevented the spare time from ever arriving.\"",how:"A brief weekly writing practice with three questions: what am I noticing that I haven't named yet? What am I avoiding looking at? What would I need to believe about this situation for it to make sense?"}
+  ]},
+  relational:{color:"#1D9E75",bg:"#E1F5EE",intro:"Relational practices develop the quality of attention between people — the specific skills of listening, questioning, and presence that make it possible to receive signals from others that they themselves may not yet be able to name.",practices:[
+    {n:1,title:"Listening beneath the content",sub:"Attending to what the conversation is doing, not just what it is saying",body:"Most organisational listening gathers information to act on. A different quality attends to the conversation itself: who is speaking and who isn't, what the energy is doing, what subject keeps being approached and deflected, what question nobody is asking.",quote:"\"The most important thing she said in that conversation was the thing she started to say and then stopped. I nearly missed it entirely.\"",how:"After any significant conversation, ask: what was not said? What did the other person start and then redirect? Where did the energy shift? The answers are often more informative than what was actually said."},
+    {n:2,title:"Questions that open rather than close",sub:"Inquiry as a leadership practice, not a technique",body:"A leader who habitually provides answers inadvertently signals that answers are what the system produces. The practice of asking questions that genuinely open — that the leader does not know the answer to — changes the information environment the system operates in.",quote:"\"When I stopped arriving at meetings with answers and started arriving with questions, the quality of what the team brought changed completely.\"",how:"Before each significant team interaction, identify one thing you genuinely do not know and intend to ask about. The question 'what am I missing here?' only works if the leader is genuinely prepared to hear an uncomfortable answer."},
+    {n:3,title:"Making vulnerability productive",sub:"The leader's not-knowing as a signal-amplifier",body:"When a leader names what they are uncertain about — genuinely, not as performance — they create a specific kind of permission in the relational field. Team members who have been managing similar uncertainty privately begin to bring it into the open.",quote:"\"The moment he said he wasn't sure what was happening, three people immediately said things they'd been sitting on for months. The room changed.\"",how:"Distinguish between vulnerability that is genuine and vulnerability that is managed. The former requires the leader to actually not-know. Teams read the difference with remarkable accuracy."}
+  ]},
+  team:{color:"#BA7517",bg:"#FAEEDA",intro:"Collective noticing practices create recurring structures in which the team develops the shared habit of attending to weak signals together — not as a one-off intervention but as a living feature of how the system operates.",practices:[
+    {n:1,title:"The noticing check-in",sub:"A recurring structure for collective signal-reading",body:"A brief, structured practice at the start of significant team gatherings in which each person names one thing they are noticing in the system right now. Not a progress update, not a problem statement. A noticing. Over time, the recurring practice builds a collective attentional vocabulary.",quote:"\"Once we started doing this regularly, things started being said in the check-in that had previously only been said in the corridor.\"",how:"Five minutes at the start of team meetings. The question: 'What are you noticing in our system right now that you haven't had a chance to name?' Observations only — no problem-solving. Patterns are tracked across sessions."},
+    {n:2,title:"Suspending assumptions — Bohm's dialogue in practice",sub:"Thinking together rather than thinking at each other",body:"Bohm proposed that most organisational conversation is actually mutual advocacy. Genuine dialogue requires suspension of assumptions — holding your interpretation lightly enough that you can attend to the raw signal rather than immediately explaining it through your existing frame.",quote:"\"I kept catching myself not listening — I was rehearsing my response. The practice of suspension meant I started actually hearing what was being said.\"",how:"Designate specific conversations as dialogue rather than discussion. Before responding, name the assumption you are about to defend. 'My assumption is X — I'm going to hold that lightly and stay with what you're saying.'"},
+    {n:3,title:"The after-action inquiry",sub:"Learning from what happened before moving to what comes next",body:"An after-action inquiry has a different orientation from a standard retrospective: what were we not attending to? What signals were available to us that we did not read? What were we collectively not saying?",quote:"\"We did a retrospective after the project overran. The honest answer was that six of us had each privately thought we were in trouble six weeks before it became obvious.\"",how:"After significant events, hold a structured inquiry with three questions: what did we notice but not name? What were we collectively avoiding looking at? What would we need to have paid attention to earlier?"},
+    {n:4,title:"Distributed sense-making",sub:"The team as a collective intelligence",body:"In a thriving leader-team system, the sense-making work is distributed — not hoarded by the leader. The team brings intelligence the leader doesn't have: proximity to the work, relationships with different stakeholders, access to different signals.",quote:"\"Once I stopped being the one who had to make sense of everything, the team started making sense of things I'd never have reached.\"",how:"Regularly ask each team member: what are you seeing from where you sit that you think I should know about? Create a shared space where observations can be named without pressure to immediately interpret or act on them."}
+  ]},
+  systemic:{color:"#D85A30",bg:"#FAECE7",intro:"Systemic practices address the organisational conditions that either enable or suppress signal-reading. Individual and team practices are significantly harder to sustain when the organisational environment is actively working against them.",practices:[
+    {n:1,title:"Slowing down to the speed of reality",sub:"Creating organisational time that is not entirely action-oriented",body:"Operational pace is perhaps the most effective suppressor of signal-reading. When every meeting is followed immediately by the next, when every decision must be made before the information to make it well has arrived — the system loses its capacity to attend to what is actually happening.",quote:"\"We were well-prepared for the crisis when it arrived. What nobody had prepared us for was the eighteen months before it.\"",how:"Designate regular protected time — monthly at minimum — in which the team's agenda is: what are we noticing about where we are? No action items emerge from this time."},
+    {n:2,title:"Psychological safety as a signal-receiving condition",sub:"Without it, weak signals stay in the corridor",body:"Psychological safety is not just a wellbeing concern — it is the primary organisational condition for signal-reading. In its absence, weak signals remain in private conversations. The signals exist — they are simply not available to the system.",quote:"\"What do I hear in one-to-ones that I don't hear in team meetings? That gap is the measure of the safety deficit.\"",how:"Track: what gets said to me informally that never reaches a formal agenda? The gap between those two is the measure of the safety deficit."},
+    {n:3,title:"Rewarding noticing, not just solving",sub:"What gets valued gets developed",body:"Most performance cultures reward problem-solving. The person who noticed an early signal and named it — before it became a problem — is rarely visible. This creates a systematic bias toward waiting until signals are loud enough to act on.",quote:"\"The fact that you named this six weeks ago is what gave us room to respond.\"",how:"In retrospectives and one-to-ones, explicitly name instances of early signal-reading. 'How did you see it so early?' This builds confidence in signal-reading capacity and signals that noticing is valued work."},
+    {n:4,title:"The edge of chaos as a productive space",sub:"Complexity theory and the conditions for emergence",body:"The most generative zone of a system is the edge of chaos — the space between order and disorder where emergence becomes possible. The leader-team system that develops signal-reading capacity is learning to inhabit this edge productively.",quote:"\"When the team experiences genuine uncertainty, resist the pressure to resolve it too quickly.\"",how:"When the team experiences a period of genuine uncertainty, ask: what is this uncertainty telling us about the system we are in? What new information is available to us precisely because we don't yet have an answer?"}
+  ]}
+};
+
+const btnColors = {individual:"#034159",relational:"#1D9E75",team:"#BA7517",systemic:"#D85A30"};
+
+document.querySelectorAll('.lbtn').forEach((b,i)=>{
+  const id = ['individual','relational','team','systemic'][i];
+  b.style.border = `1.5px solid ${btnColors[id]}`;
+  b.style.color = btnColors[id];
+  if(i===0){b.style.background=btnColors[id];b.style.color='white';}
+});
+
+function renderLevel(id) {
+  const l = levels[id];
+  const el = document.getElementById('lp-'+id);
+  const practices = l.practices.map(p=>`
+    <div class="practice" onclick="this.classList.toggle('open')">
+      <div class="p-head">
+        <div class="p-num" style="background:${l.bg};color:${l.color};">${p.n}</div>
+        <div><p class="p-title">${p.title}</p><p class="p-sub">${p.sub}</p></div>
+      </div>
+      <div class="p-body">
+        <p>${p.body}</p>
+        <div class="p-quote">${p.quote}</div>
+        <div class="p-how"><strong>IN PRACTICE</strong><span>${p.how}</span></div>
+      </div>
+    </div>`).join('');
+  el.innerHTML = `<div class="level-intro" style="border-color:${l.color};background:${l.bg}20;"><p>${l.intro}</p></div>${practices}`;
+}
+
+function showLevel(id, btn) {
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.lbtn').forEach((b,i)=>{
+    const lid=['individual','relational','team','systemic'][i];
+    b.style.background='none';b.style.color=btnColors[lid];
+  });
+  document.getElementById('lp-'+id).classList.add('active');
+  btn.style.background=btnColors[id];btn.style.color='white';
+}
+
+Object.keys(levels).forEach(id=>renderLevel(id));
+</script>
+</body>
+</html>
